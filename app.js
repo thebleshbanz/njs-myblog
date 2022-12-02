@@ -56,7 +56,6 @@ const initMongo = require('./config/mongo')
 var app = express();
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 // i18n
 i18n.configure({
@@ -86,7 +85,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression())
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 
 // error handler
