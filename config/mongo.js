@@ -3,7 +3,8 @@
  */
 const mongoose = require('mongoose')
 
-const DB_URL = process.env.MONGO_URI || "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority=test";
+// const DB_URL = process.env.MONGO_URI || "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority=test";
+const DB_URL = "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority=test";
 
 // const loadModels = require('../app/models')
 
@@ -32,7 +33,7 @@ module.exports = () => {
           // Prints initialization
           console.log('****************************')
           console.log('*    Starting Server')
-          console.log(`*    Port: ${process.env.PORT || 3000}`)
+          console.log(`*    Port: ${process.env.PORT || 4001}`)
           console.log(`*    NODE_ENV: ${process.env.NODE_ENV}`)
           console.log(`*    Database: MongoDB`)
           console.log(dbStatus)

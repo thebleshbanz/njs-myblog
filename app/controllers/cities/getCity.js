@@ -12,6 +12,7 @@ const { isIDGood, handleError } = require('../../middleware/utils');
 const getCity = async (req, res) => {
     try {
         req = matchedData(req);
+        console.log(req.id); return false;
         const id = await isIDGood(req.id);
         res.status(200).json(await getItem(id, City));
     } catch (error) {

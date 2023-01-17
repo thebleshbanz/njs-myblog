@@ -7,6 +7,7 @@ const {
     getCities,
     getCity,
     createCity,
+    updateCity
 } = require('../app/controllers/cities');
 
 /**
@@ -27,7 +28,7 @@ router.get('/', getCities);
  * Get item route
  */
 router.get(
-    '/:id',
+    '/getCityById',
     getCity
 )
 
@@ -36,7 +37,17 @@ router.get(
  */
 router.post(
     '/',
+    trimRequest.all,
     createCity
+)
+
+/**
+ * Update item route
+ */
+router.patch(
+    ':/id',
+    trimRequest.all,
+    updateCity
 )
 
 module.exports = router;
