@@ -1,0 +1,10 @@
+require('dotenv-safe').config();
+
+const path = require('path');
+
+const Sequelize = require("sequelize");
+
+module.exports = {
+    "seeders-path" : path.resolve(__dirname, './database/seeds'),
+    // seederStorage : 'sequelize'
+}

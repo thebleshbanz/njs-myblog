@@ -48,7 +48,9 @@ const passport = require('passport')
  */
 const i18n = require('i18n')
 
-const initMongo = require('./config/mongo')
+// const initMongo = require('./config/mongo')
+const initMysql = require('./config/mysql')
+initMysql(); 
 
 /**
  * Initialize App
@@ -100,6 +102,12 @@ app.use(function(err, req, res, next) {
 
 
 // Init MongoDB
-initMongo()
+// initMongo()
+
+
+// Init Mysql
+initMysql()
+
+
 
 module.exports = app;
