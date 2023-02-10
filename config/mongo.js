@@ -4,7 +4,7 @@
 const mongoose = require('mongoose')
 
 // const DB_URL = process.env.MONGO_URI || "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority=test";
-const DB_URL = "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority=test";
+const DB_URL = "mongodb+srv://ngs-myblog:NuDrRHtK7quS3Cpn@myblog.tfrtibr.mongodb.net/?retryWrites=true&w=majority";
 
 // const loadModels = require('../app/models')
 
