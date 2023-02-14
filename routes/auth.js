@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+require('../config/passport');
 const passport = require('passport');
-const {requireAuth} = passport.authenticate('jwt', {session: false});
+const requireAuth = passport.authenticate('jwt', {
+    session: false
+});
 const trimRequest = require('trim-request');
 
 const {
@@ -42,16 +45,16 @@ router.post('/verify', trimRequest.all, validateVerify, verify);
  */
 router.post('/reset', trimRequest.all, validateResetPassword, resetPassword);
 
-/**
+/*
  * Get new refresh token
  */
-// router.get(
-//     '/token',
-//     requireAuth,
-//     roleAuthorization(['user', 'admin']),
-//     trimRequest.all,
-//     getRefreshToken
-// );
+router.get(
+    '/token',
+    requireAuth,
+    roleAuthorization(['user', 'admin']),
+    trimRequest.all,
+    getRefreshToken
+);
 
 /**
  * Login route

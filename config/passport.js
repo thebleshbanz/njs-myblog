@@ -30,7 +30,7 @@ const jwtExtractor = (req) => {
  */
 const jwtOptions = {
     jwtFromRequest: jwtExtractor,
-    secretOrKey: process.envJWT_SECRET,
+    secretOrKey: "MyUltraSecurePassWordIWontForgetToChange",
 }
 
 /**

@@ -11,9 +11,9 @@ const { matchData } = require('express-validator');
 
 const updateCity = async (req, res) => {
     try {
-        req = matchData(req);
-        const id = await isIDGood(req.id);
-        const result = await updateItem(id, City, req);
+        // req = matchData(req);
+        const id = await isIDGood(req.body.id);
+        const result = await updateItem(id, City, req.body);
         res.status(200).json({message:"success update"});
     } catch (error) {
         handleError(res, error);

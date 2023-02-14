@@ -6,13 +6,12 @@ const { isIDGood, handleError } = require('../../middleware/utils');
 /**
  * Get item function called by route
  * @param {Object} req - request object
- * @param {Object} res - response object 
+ * @param {Object} res - response object
  */
 
 const getCity = async (req, res) => {
     try {
         req = matchedData(req);
-        console.log(req.id); return false;
         const id = await isIDGood(req.id);
         res.status(200).json(await getItem(id, City));
     } catch (error) {

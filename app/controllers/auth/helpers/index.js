@@ -14,6 +14,7 @@ const {  markResetPasswordAsUsed } = require('./markResetPasswordAsUsed');
 // refresh token
 const {  checkPermissions } = require('./checkPermissions');
 const {  getUserIdFromToken } = require('./getUserIdFromToken');
+const {  findUserById } = require('./findUserById');
 // user login
 const {  findUser } = require('./findUser');
 const {  userIsBlocked } = require('./userIsBlocked');
@@ -40,6 +41,7 @@ module.exports = {
     // refresh token
     checkPermissions,
     getUserIdFromToken,
+    findUserById,
     // login
     findUser,
     userIsBlocked,

@@ -1,14 +1,27 @@
 const express = require('express');
 const router = express.Router();
+require('../config/passport');
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt',{
+    session:false
+});
 const trimRequest = require('trim-request');
+const { roleAuthorization } = require('../app/controllers/auth');
 
 const {
     getAllCities,
     getCities,
     getCity,
     createCity,
-    updateCity
+    updateCity,
+    deleteCity
 } = require('../app/controllers/cities');
+
+const {
+    validateGetCity,
+    validateCreateCity,
+    validateUpdateCity
+} = require('../app/controllers/cities/validators');
 
 /**
  * Cities routes
@@ -28,7 +41,11 @@ router.get('/', getCities);
  * Get item route
  */
 router.get(
-    '/getCityById',
+    '/:id',
+    requireAuth,
+    roleAuthorization(['user', 'admin']),
+    trimRequest.all,
+    validateGetCity,
     getCity
 )
 
@@ -37,17 +54,33 @@ router.get(
  */
 router.post(
     '/',
+    requireAuth,
+    roleAuthorization(['user', 'admin']),
     trimRequest.all,
+    validateCreateCity,
     createCity
 )
 
 /**
  * Update item route
  */
-router.patch(
-    ':/id',
+router.post(
+    '/update',
+    requireAuth,
+    roleAuthorization(['user', 'admin']),
     trimRequest.all,
+    // validateUpdateCity,
     updateCity
 )
+
+/**
+ * Delete item route
+ */
+router.post(
+    '/delete',
+    requireAuth,
+    roleAuthorization(['user',  'admin']),
+    deleteCity
+);
 
 module.exports = router;
