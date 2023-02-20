@@ -1,4 +1,4 @@
-
+const { itemNotFound } = require('../../middleware/utils')
 
 /**
  * Updates an item in database by id
@@ -17,6 +17,7 @@ const updateItem = (id='', model={}, req ={}) => {
             },
             async (err, item) => {
                 try {
+                    await itemNotFound(err, item, 'NOT_FOUND')
                     resolve(item);
                 } catch (error) {
                     reject(error);

@@ -69,7 +69,7 @@ router.post(
     requireAuth,
     roleAuthorization(['user', 'admin']),
     trimRequest.all,
-    // validateUpdateCity,
+    validateUpdateCity,
     updateCity
 )
 

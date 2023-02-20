@@ -120,7 +120,6 @@ app.use(helmet())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(compression())
 
 // app route init
 app.use('/', indexRouter);
